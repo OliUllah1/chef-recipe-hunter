@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { FaGoogle,FaGithub } from "react-icons/fa";
 const Login = () => {
   return (
-    <div>
-      <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold">Place Login Hear</h1>
+          <div className="">
+            <h1 className="text-5xl font-bold">Please Login</h1>
           </div>
           <div className="card flex-shrink-0 w-96 shadow-2xl bg-base-100">
             <div className="card-body w-full">
@@ -36,15 +35,22 @@ const Login = () => {
                   </a>
                 </label>
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-4 mb-3">
                 <button className="btn btn-primary">Login</button>
+              </div>
+              <p className="text-center">Or</p>
+              <hr />
+              <div className="form-control">
+                <button className="btn"><FaGoogle className=""></FaGoogle><span className="ml-4"> Login with Google</span></button>
+              </div>
+              <div className="form-control mt-1">
+                <button className="btn"><FaGithub></FaGithub> <span className="ml-4"> Login with GitHub</span></button>
               </div>
 
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
