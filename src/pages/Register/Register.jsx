@@ -1,13 +1,44 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
+    const [error,setError]=useState('');
+    const {createUserEmailAndPassword} = useContext(AuthContext);
+    const handleSignIn=(event)=>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photoUrl = form.photoUrl.value;
+        
+        setError('')
+        if(!password||!email){
+            setError('you can not provide email and password')
+            return;
+        }
+        else if(password.length<6){
+            setError('password must be 6 character')
+            return;
+        }
+        console.log(name,email,password,photoUrl)
+        createUserEmailAndPassword(email,password)
+        .then((result) => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col">
           <div className="">
             <h1 className="text-5xl font-bold">Please Register</h1>
           </div>
+          <form onSubmit={handleSignIn} action="">
           <div className="card flex-shrink-0 w-96 shadow-2xl bg-base-100">
             <div className="card-body w-full">
               <div className="form-control">
@@ -58,6 +89,7 @@ const Register = () => {
                   Already have a account? <Link to='/login'><a className="link link-accent">login now</a></Link>
                   </a>
                 </label>
+                {<a className=' text-red-700 text-sm'>{error}</a>}
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Register Now</button>
@@ -65,6 +97,7 @@ const Register = () => {
 
             </div>
           </div>
+          </form>
         </div>
       </div>
     );
