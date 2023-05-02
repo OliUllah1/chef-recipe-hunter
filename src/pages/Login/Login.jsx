@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle,FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
     const [error,setError]=useState('');
-    const {signInEmailAndPassword}=useContext(AuthContext);
+    const navigate = useNavigate()
+    const {signInEmailAndPassword,signInGoogle}=useContext(AuthContext);
     const handleSignIn=(event)=>{
         event.preventDefault();
         const from =event.target;
@@ -22,6 +23,18 @@ const Login = () => {
             const user = result.user;
             console.log(user)
             from.reset();
+            navigate('/')
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
+    const handleSignInGoogle=(event)=>{
+        signInGoogle()
+        .then((result)=>{
+            const user =result.user;
+            console.log(user)
+            navigate('/')
         })
         .catch((error)=>{
             console.log(error)
@@ -45,6 +58,7 @@ const Login = () => {
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -56,6 +70,7 @@ const Login = () => {
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
+                  required
                 />
                 <label className="label">
                   <a href="#" className="label-text-alt">
@@ -69,16 +84,19 @@ const Login = () => {
               </div>
               <p className="text-center">Or</p>
               <hr />
-              <div className="form-control">
-                <button className="btn"><FaGoogle className=""></FaGoogle><span className="ml-4"> Login with Google</span></button>
-              </div>
-              <div className="form-control mt-1">
-                <button className="btn"><FaGithub></FaGithub> <span className="ml-4"> Login with GitHub</span></button>
-              </div>
+              
 
             </div>
           </div>
           </form>
+         <div className=" bg-base-100 w-full">
+                <div className="form-control mt-1">
+                    <button onClick={handleSignInGoogle} className="btn"><FaGoogle className=""></FaGoogle><span className="ml-4"> Login with Google</span></button>
+                </div>
+                <div className="form-control mt-1">
+                    <button className="btn"><FaGithub></FaGithub> <span className="ml-4"> Login with GitHub</span></button>
+                </div>
+         </div>
         </div>
       </div>
   );

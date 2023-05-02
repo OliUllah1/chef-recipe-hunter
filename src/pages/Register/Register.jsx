@@ -1,18 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
     const [error,setError]=useState('');
-    const {createUserEmailAndPassword} = useContext(AuthContext);
+    const {createUserEmailAndPassword,setProfile,profileUpdate} = useContext(AuthContext);
+    const navigate = useNavigate()
     const handleSignIn=(event)=>{
         event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const password = form.password.value;
-        const photoUrl = form.photoUrl.value;
-        
+        const from = event.target;
+        const name = from.name.value;
+        const email = from.email.value;
+        const password = from.password.value;
+        const photoUrl = from.photoUrl.value;
+        setProfile(photoUrl)
         setError('')
         if(!email){
             setError('you can not provide your email')
@@ -29,14 +30,16 @@ const Register = () => {
             const user = result.user;
             console.log(user)
             from.reset();
+            navigate('/')
         })
         .catch((error)=>{
-
-
-
-
             console.log(error)
         })
+        // profileUpdate(name,photoUrl)
+        // .then(()=>{})
+        // .catch((error)=>{
+        // })
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -44,7 +47,7 @@ const Register = () => {
           <div className="">
             <h1 className="text-5xl font-bold">Please Register</h1>
           </div>
-          <form onSubmit={handleSignIn} action="">
+          <form onSubmit={handleSignIn}>
           <div className="card flex-shrink-0 w-96 shadow-2xl bg-base-100">
             <div className="card-body w-full">
               <div className="form-control">
@@ -56,6 +59,7 @@ const Register = () => {
                   name='name'
                   placeholder="name"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -67,6 +71,7 @@ const Register = () => {
                   name='email'
                   placeholder="email"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -78,6 +83,7 @@ const Register = () => {
                   name='password'
                   placeholder="password"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
