@@ -74,7 +74,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        <button className="px-5 py-1 rounded text-white border border-blue-700 hover:bg-blue-400">Log In</button>
+        <Link to='login'><button className="px-5 py-1 rounded text-white border border-blue-700 hover:bg-blue-400">Log In</button></Link>
         </div>
       </div>
     </div>
