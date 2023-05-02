@@ -3,8 +3,8 @@ import logo from '../../../public/logo.png'
 import { NavLink, Link } from "react-router-dom";
 const Navbar = () => {
   return (
-    <div className="flex justify-between pt-5 items-center">
-      <div className="navbar bg-gray-700">
+    <div className=''>
+      <div className="navbar bg-gray-700 drop-shadow-lg">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,7 +74,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-6 py-3 rounded-lg font-semibold text-white shadow-md">Log In</button>
+        <button className="px-5 py-1 rounded text-white border border-blue-700 hover:bg-blue-400">Log In</button>
         </div>
       </div>
     </div>
