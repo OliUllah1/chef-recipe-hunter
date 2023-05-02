@@ -14,7 +14,8 @@ import ErrorPage from "../ErrorPage/ErrorPage";
       children:([
         {
           path:'/',
-          element:<Home></Home>
+          element:<Home></Home>,
+          loader:()=>fetch('http://localhost:5000/')
         },
         {
           path:'/blog',

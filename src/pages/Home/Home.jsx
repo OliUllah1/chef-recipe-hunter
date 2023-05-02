@@ -1,5 +1,6 @@
 import React from "react";
 import banner from '../../../public/images/banner.jpg';
+import ChefInfo from "../ChefInfo/ChefInfo";
 const Home = () => {
   return (
     <div>
@@ -20,6 +21,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <ChefInfo></ChefInfo>
     </div>
   );
 };
