@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../public/logo.png'
 import { NavLink, Link } from "react-router-dom";
+import { AuthContext } from '../../provider/AuthProvider';
 const Navbar = () => {
+  const {user,logOut}=useContext(AuthContext)
   return (
     <div className=''>
       <div className="navbar bg-gray-700 drop-shadow-lg">
@@ -74,7 +76,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        <Link to='login'><button className="px-5 py-1 rounded text-white border border-blue-700 hover:bg-blue-400">Log In</button></Link>
+        {user}
         </div>
       </div>
     </div>

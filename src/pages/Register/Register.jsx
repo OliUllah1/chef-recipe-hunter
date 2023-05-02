@@ -14,21 +14,27 @@ const Register = () => {
         const photoUrl = form.photoUrl.value;
         
         setError('')
-        if(!password||!email){
-            setError('you can not provide email and password')
+        if(!email){
+            setError('you can not provide your email')
             return;
+        }else if(!password){
+            setError('you can not provide your password')
         }
         else if(password.length<6){
             setError('password must be 6 character')
             return;
         }
-        console.log(name,email,password,photoUrl)
         createUserEmailAndPassword(email,password)
         .then((result) => {
             const user = result.user;
             console.log(user)
+            from.reset();
         })
         .catch((error)=>{
+
+
+
+
             console.log(error)
         })
     }
