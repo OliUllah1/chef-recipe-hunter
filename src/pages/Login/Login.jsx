@@ -5,7 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
     const [error,setError]=useState('');
     const navigate = useNavigate()
-    const {signInEmailAndPassword,signInGoogle}=useContext(AuthContext);
+    const {signInEmailAndPassword,signInGoogle,signInGitHub}=useContext(AuthContext);
     const handleSignIn=(event)=>{
         event.preventDefault();
         const from =event.target;
@@ -31,6 +31,17 @@ const Login = () => {
     }
     const handleSignInGoogle=(event)=>{
         signInGoogle()
+        .then((result)=>{
+            const user =result.user;
+            console.log(user)
+            navigate('/')
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
+    const handleSignInGitHub=(event)=>{
+        signInGitHub()
         .then((result)=>{
             const user =result.user;
             console.log(user)
@@ -94,7 +105,7 @@ const Login = () => {
                     <button onClick={handleSignInGoogle} className="btn"><FaGoogle className=""></FaGoogle><span className="ml-4"> Login with Google</span></button>
                 </div>
                 <div className="form-control mt-1">
-                    <button className="btn"><FaGithub></FaGithub> <span className="ml-4"> Login with GitHub</span></button>
+                    <button onClick={handleSignInGitHub} className="btn"><FaGithub></FaGithub> <span className="ml-4"> Login with GitHub</span></button>
                 </div>
          </div>
         </div>
