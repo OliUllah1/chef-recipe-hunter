@@ -18,6 +18,7 @@ const Login = () => {
           setError('password must be 6 character')
           return;
       }
+      
         signInEmailAndPassword(email,password)
         .then((result)=>{
             const user = result.user;
