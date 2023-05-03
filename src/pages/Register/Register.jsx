@@ -15,13 +15,7 @@ const Register = () => {
         const photoUrl = from.photoUrl.value;
         setProfile(photoUrl)
         setError('')
-        if(!email){
-            setError('you can not provide your email')
-            return;
-        }else if(!password){
-            setError('you can not provide your password')
-        }
-        else if(password.length<6){
+        if(password.length<6){
             setError('password must be 6 character')
             return;
         }
@@ -34,6 +28,7 @@ const Register = () => {
         })
         .catch((error)=>{
             console.log(error)
+            setError(error.message)
         })
         // profileUpdate(name,photoUrl)
         // .then(()=>{})

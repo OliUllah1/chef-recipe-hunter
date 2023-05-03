@@ -1,32 +1,33 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle,FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
     const [error,setError]=useState('');
     const navigate = useNavigate()
     const {signInEmailAndPassword,signInGoogle,signInGitHub}=useContext(AuthContext);
+    const location =useLocation();
+    const from = location.state?.from?.pathname||'/'
     const handleSignIn=(event)=>{
         event.preventDefault();
-        const from =event.target;
-        const email = from.email.value;
-        const password = from.password.value;
+        const form =event.target;
+        const email = form.email.value;
+        const password = form.password.value;
         setError('');
-        if(!email){
-            setError('please enter your email')
-        }
-        else if(!password){
-            setError('please enter your password')
-        }
+        if(password.length<6){
+          setError('password must be 6 character')
+          return;
+      }
         signInEmailAndPassword(email,password)
         .then((result)=>{
             const user = result.user;
             console.log(user)
-            from.reset();
-            navigate('/')
+            form.reset();
+            navigate(from, {replace:true})
         })
         .catch((error)=>{
             console.log(error)
+            setError(error.message)
         })
     }
     const handleSignInGoogle=(event)=>{
