@@ -9,7 +9,7 @@ const Recipes = ({recipe}) => {
     
     const handleBookMark=()=>{
         setBookMark(true)
-        return toast('The Recipe is Your Favorite')
+        return toast('Wow ! Your Favorite Recipe added')
     }
 
 
@@ -35,7 +35,7 @@ const Recipes = ({recipe}) => {
                 </div>
                 <div className='flex items-center justify-between  mt-3'>
                 <p className=' font-semibold text-yellow-400 text-xl'><span className=' font-bold text-gray-800'>Rating :</span> {rating}</p>
-                <p className='flex items-center gap-2 font-semibold'> Favorite <button disabled={bookMark?"true":""} onClick={()=>handleBookMark()} ><FaRegBookmark className={bookMark?"text-yellow-500":''}></FaRegBookmark></button></p>
+                <p className='flex items-center gap-2 font-semibold'> Favorite <button disabled={bookMark?true:false} onClick={()=>handleBookMark()} ><FaRegBookmark className={bookMark?"text-yellow-500":''}></FaRegBookmark></button></p>
                 </div>
               </div>
             </div>
