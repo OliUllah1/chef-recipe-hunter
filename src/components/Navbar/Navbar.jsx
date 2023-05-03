@@ -84,6 +84,26 @@ const Navbar = () => {
                 Blog
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="menulist"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-400" : "text-white"
+                }
+              >
+                Menu List
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="recipe"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-400" : "text-white"
+                }
+              >
+                Popular Recipe
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">

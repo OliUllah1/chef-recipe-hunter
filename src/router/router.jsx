@@ -8,6 +8,8 @@ import Register from "../pages/Register/Register";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import ChefDetails from "../pages/ChefDetails/ChefDetails";
 import PrivateRouter from "./PrivateRouter/PrivateRouter";
+import MainMenu from "../pages/MainMenu/MainMenu";
+import PopularRecipe from "../pages/PopularRecipe/PopularRecipe";
   const router = createBrowserRouter([
     {
       path:'/',
@@ -35,6 +37,14 @@ import PrivateRouter from "./PrivateRouter/PrivateRouter";
         {
           path:'/register',
           element:<Register></Register>
+        },
+        {
+          path:'/menulist',
+          element:<MainMenu></MainMenu>
+        },
+        {
+          path:'/recipe',
+          element:<PopularRecipe></PopularRecipe>
         }
       ])
     }
