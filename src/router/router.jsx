@@ -17,12 +17,12 @@ import PrivateRouter from "./PrivateRouter/PrivateRouter";
         {
           path:'/',
           element:<Home></Home>,
-          loader:()=>fetch('http://localhost:5000/')
+          loader:()=>fetch('https://chef-recipe-server-oliullah1.vercel.app/')
         },
         {
           path:'/:id',
           element:<PrivateRouter><ChefDetails></ChefDetails></PrivateRouter>,
-          loader:({params})=>fetch(`http://localhost:5000/${params.id.slice(1)}`)
+          loader:({params})=>fetch(`https://chef-recipe-server-oliullah1.vercel.app/${params.id.slice(1)}`)
         },
         {
           path:'/blog',

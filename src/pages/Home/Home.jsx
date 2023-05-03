@@ -1,6 +1,7 @@
 import React from "react";
 import banner from '../../../public/images/banner.jpg';
 import ChefInfo from "../ChefInfo/ChefInfo";
+import MainMenu from "../MainMenu/MainMenu";
 const Home = () => {
   return (
     <div>
@@ -13,7 +14,8 @@ const Home = () => {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="">
-            <h1 className="mb-5 text-6xl font-bold">Experienece The Best Only <br />Taste Of Itlay</h1>
+            <h1 className="mb-5 text-6xl font-bold">Experience The Best Only
+Taste <br /> Of italian food</h1>
             <p className="mb-5">
               Mistaken Idea Of Denouncing Pleasure And Praising Pain.
             </p>
@@ -22,6 +24,7 @@ const Home = () => {
         </div>
       </div>
       <ChefInfo></ChefInfo>
+      <MainMenu></MainMenu>
     </div>
   );
 };
