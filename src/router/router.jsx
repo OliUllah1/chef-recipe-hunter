@@ -6,6 +6,7 @@ import Blog from "../pages/Blog/Blog";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import ChefDetails from "../pages/ChefDetails/ChefDetails";
   const router = createBrowserRouter([
     {
       path:'/',
@@ -16,6 +17,11 @@ import ErrorPage from "../ErrorPage/ErrorPage";
           path:'/',
           element:<Home></Home>,
           loader:()=>fetch('http://localhost:5000/')
+        },
+        {
+          path:'/:id',
+          element:<ChefDetails></ChefDetails>,
+          loader:({params})=>fetch(`http://localhost:5000/${params.id.slice(1)}`)
         },
         {
           path:'/blog',
