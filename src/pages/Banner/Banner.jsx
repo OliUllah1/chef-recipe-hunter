@@ -11,13 +11,13 @@ const Banner = () => {
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="">
-          <h1 className="mb-5 text-6xl font-bold">
-            Experience The Best Only Taste <br /> Of italian food
+          <h1 className="mb-5 text-6xl font-semibold">
+            Discover Food Taste Our <br /> <span className="font-bold text-yellow-500">Best</span> Healthy & Tasty.
           </h1>
-          <p className="mb-5">
-            Mistaken Idea Of Denouncing Pleasure And Praising Pain.
+          <p className="mb-5 text-gray-100">
+            Our food is made from the freshest ingredients and the  result is a much better <br />sushi with a fresh look and of course great taste guarantee.
           </p>
-          <button className="btn btn-outline btn-accent">Read More</button>
+          <button className="btn btn-outline btn-accent">Order Now</button>
         </div>
       </div>
     </div>
