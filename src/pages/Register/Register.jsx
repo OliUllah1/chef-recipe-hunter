@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [error,setError]=useState('');
-    const {createUserEmailAndPassword,setProfile,profileUpdate} = useContext(AuthContext);
+    const {createUserEmailAndPassword,setPhoto,setProfileName} = useContext(AuthContext);
     const navigate = useNavigate()
     const handleSignIn=(event)=>{
         event.preventDefault();
@@ -13,28 +14,37 @@ const Register = () => {
         const email = from.email.value;
         const password = from.password.value;
         const photoUrl = from.photoUrl.value;
-        setProfile(photoUrl)
         setError('')
+        setPhoto(photoUrl)
+        setProfileName(name)
         if(password.length<6){
             setError('password must be 6 character')
             return;
         }
+
         createUserEmailAndPassword(email,password)
         .then((result) => {
             const user = result.user;
             console.log(user)
             from.reset();
             navigate('/')
+            updateUserData(result.user,name,photoUrl)
         })
         .catch((error)=>{
             console.log(error)
             setError(error.message)
         })
-        // profileUpdate(name,photoUrl)
-        // .then(()=>{})
-        // .catch((error)=>{
-        // })
+       
 
+    }
+    const updateUserData =(user,userName,photoUrl)=>{
+      updateProfile(user,{displayName:userName,photoURL:photoUrl})
+      .then(()=>{
+        console.log('user updated')
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
     }
     return (
         <div className="hero min-h-screen bg-base-200">

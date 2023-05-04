@@ -3,7 +3,10 @@ import logo from "../../../public/logo.png";
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 const Navbar = () => {
-  const { user, logOut, profile } = useContext(AuthContext);
+  const { user, logOut,photo,profileName} = useContext(AuthContext);
+  const profileImg = user?.photoURL || photo;
+  const name = user?.displayName||profileName;
+  
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -12,8 +15,8 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="">
-      <div className="navbar bg-gray-700 drop-shadow-lg">
+    <div className=" bg-gray-700">
+      <div className="navbar px-1 lg:px-10  drop-shadow-lg">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -34,7 +37,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100  rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100  rounded-box w-52 "
             >
               <li>
                 <NavLink
@@ -46,6 +49,7 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
                   to="blog"
@@ -56,10 +60,44 @@ const Navbar = () => {
                   Blog
                 </NavLink>
               </li>
+
+              <li>
+              <NavLink
+                to="menulist"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-400" : ""
+                }
+              >
+                Menu List
+              </NavLink>
+              </li>
+
+              <li>
+              <NavLink
+                to="recipe"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-400" : ""
+                }
+              >
+                Popular Recipe
+              </NavLink>
+              </li>
+
+              <li>
+              <NavLink
+                to="register"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-400" : ""
+                }
+              >
+                Register
+              </NavLink>
+              </li>
+
             </ul>
           </div>
           <Link to="/">
-            <img className="h-10" src={logo} alt="" />
+            <img className="h-7 ml-2 lg:ml-0 lg:h-10" src={logo} alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -104,6 +142,16 @@ const Navbar = () => {
                 Popular Recipe
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="register"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-400" : "text-white"
+                }
+              >
+                Register
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
@@ -112,8 +160,8 @@ const Navbar = () => {
           <div  className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img
-                className="w-full"
-                src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=740&t=st=1683019164~exp=1683019764~hmac=4fee058ea92aedef9643b797afce775813c4d25f9ab6f820488341e428bffeaf"
+                className="w-full" title={name}
+                src={profileImg}
               />
             </div>
           </div>

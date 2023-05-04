@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import Recipes from "../Recipes/Recipes";
@@ -17,8 +17,9 @@ const ChefDetails = () => {
     recipes
   } = chefData;
   return (
+    
     <div className="p-10">
-      <div className=" flex gap-10 items-center">
+      {chefData?<div><div className=" flex gap-10 items-center">
         <div>
           <LazyLoad><img src={picture} className="max-w-sm rounded-lg shadow-2xl" /></LazyLoad>
         </div>
@@ -52,7 +53,7 @@ const ChefDetails = () => {
                 recipes.map((recipe,index)=><Recipes key={index} recipe={recipe}></Recipes>)
             }
           </div>
-      </div>
+      </div></div>:<progress className="progress w-96"></progress>}
     </div>
   );
 };

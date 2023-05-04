@@ -4,14 +4,14 @@ import recipe2 from '../../../public/images/food2.png'
 import recipe3 from '../../../public/images/food3.png'
 const PopularRecipe = () => {
   return (
-    <div className="bg-gray-800 p-10">
+    <div className="bg-gray-800 lg:px-10 py-10">
       <h1 className="text-center font-bold text-white text-4xl mb-10">
         Our Popular Recipe
       </h1>
-      <div className=" grid grid-cols-3">
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <div className=" grid grid-cols-1 lg:grid-cols-3 px-2 lg:px-0">
+      <div className="card card-compact lg:w-96 bg-base-100 shadow-xl mb-5 lg:mb-0">
         <figure>
-          <img
+          <img className=""
             src={recipe1}
             alt="Shoes"
           />
@@ -20,7 +20,7 @@ const PopularRecipe = () => {
           <p className="text-center text-yellow-500 font-semibold my-3"><span className="text-4xl">$</span><span className="text-3xl">32</span></p>
           <p className="text-center text-xl font-semibold text-gray-500 pb-5">Lorem ipsum dolor sit amet,<br /> consectetur adipiscing elit.</p>
       </div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <div className="card card-compact lg:w-96 bg-base-100 mb-5 lg:mb-0 shadow-xl">
         <figure>
           <img
             src={recipe2}
@@ -31,7 +31,7 @@ const PopularRecipe = () => {
           <p className="text-center text-yellow-500 font-semibold my-3"><span className="text-4xl">$</span><span className="text-3xl">32</span></p>
           <p className="text-center text-xl font-semibold text-gray-500 pb-5">Lorem ipsum dolor sit amet,<br /> consectetur adipiscing elit.</p>
       </div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <div className="card card-compact lg:w-96 bg-base-100 shadow-xl">
         <figure>
           <img
             src={recipe3}

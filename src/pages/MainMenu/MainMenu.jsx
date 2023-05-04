@@ -2,17 +2,17 @@ import React from 'react';
 import menuImg from '../../../public/images/menus.jpg'
 const MainMenu = () => {
     return (
-        <div className=' p-10'>
+        <div className='px-2 lg:px-10 py-10'>
             <h1 className='text-center text-5xl font-bold mb-10'>Our Menu Lists</h1>
-            <div className=" flex gap-5 items-center">
-        <div className='lg:w-[45%]'>
+            <div className=" lg:flex lg:gap-5 items-center">
+        <div className='lg:w-[45%] mb-5 lg:mb-0'>
           <img src={menuImg} className="rounded-lg shadow-2xl w-full" />
         </div>
         <div className='lg:w-[55%]'>
           <div className='flex justify-between'>
-            <h1 className=' text-3xl font-bold text-purple-500'>Lasagne alla Bolognese</h1>
-            <p className=' text-2xl text-gray-400'>- - - - - - - - - - - - - - - - - - </p>
-            <p className=' text-3xl text-yellow-300 font-semibold'><span className='text-4xl'>$</span>45</p>
+            <h1 className='text-3xl font-bold text-purple-500'>Lasagne alla Bolognese</h1>
+            <p className='text-2xl text-gray-400'>- - - - - - - - - - - - - - - - - - </p>
+            <p className='text-3xl text-yellow-300 font-semibold'><span className='text-4xl'>$</span>45</p>
           </div>
           <p className='text-xl font-semibold text-gray-400 mb-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, ipsa?</p>
           <hr />
@@ -50,7 +50,6 @@ const MainMenu = () => {
             <p className=' text-3xl text-yellow-300 font-semibold'><span className='text-4xl'>$</span>45</p>
           </div>
           <p className='text-xl font-semibold text-gray-400 mb-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, ipsa?</p>
-          <hr />
           
         </div>
       </div>

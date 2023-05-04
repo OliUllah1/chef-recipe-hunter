@@ -8,6 +8,7 @@ const Login = () => {
     const {signInEmailAndPassword,signInGoogle,signInGitHub}=useContext(AuthContext);
     const location =useLocation();
     const from = location.state?.from?.pathname||'/'
+    
     const handleSignIn=(event)=>{
         event.preventDefault();
         const form =event.target;
