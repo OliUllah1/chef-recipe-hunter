@@ -1,6 +1,7 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import LazyLoad from 'react-lazy-load';
 
 const ChefCard = ({ chef }) => {
   const {id,chefName,picture,likes,numRecipes,yearsOfExperience}=chef;
@@ -8,10 +9,12 @@ const ChefCard = ({ chef }) => {
     <div>
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
+          <LazyLoad>
           <img
             src={picture}
             alt="Shoes"
           />
+          </LazyLoad>
         </figure>
         <div className="card-body">
           <h2 className="card-title text-2xl font-bold">{chefName}</h2>

@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import Recipes from "../Recipes/Recipes";
+import LazyLoad from 'react-lazy-load';
 
 const ChefDetails = () => {
   const chefData = useLoaderData();
@@ -19,7 +20,7 @@ const ChefDetails = () => {
     <div className="p-10">
       <div className=" flex gap-10 items-center">
         <div>
-          <img src={picture} className="max-w-sm rounded-lg shadow-2xl" />
+          <LazyLoad><img src={picture} className="max-w-sm rounded-lg shadow-2xl" /></LazyLoad>
         </div>
         <div>
           <h1 className="text-5xl font-bold mb-4 underline">Chef Details</h1>

@@ -2,10 +2,12 @@ import { handler } from 'daisyui';
 import React, { useState } from 'react';
 import { FaRegBookmark } from "react-icons/fa";
 import { toast } from 'react-toastify';
+import LazyLoad from 'react-lazy-load';
+
 const Recipes = ({recipe}) => {
     const [readMore ,setReadMore]=useState(false);
     const [bookMark,setBookMark] = useState(false)
-    const {cookingMethod,ingredients,recipeName,rating,recipeImg,favorite}=recipe;
+    const {cookingMethod,ingredients,recipeName,rating,recipeImg}=recipe;
     
     const handleBookMark=()=>{
         setBookMark(true)
@@ -17,11 +19,13 @@ const Recipes = ({recipe}) => {
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
               <figure className="px-5 pt-50 h-52">
-                <img
+               <LazyLoad>
+               <img
                   src={recipeImg}
                   alt="Shoes"
                   className="rounded-xl h-full w-full"
                 />
+               </LazyLoad>
               </figure>
               <div className=" pb-5 px-5">
                 <h3 className='font-semibold text-xl mt-3'><span className=' font-bold'>Recipe Name : </span> {recipeName}</h3>
