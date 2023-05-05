@@ -53,7 +53,7 @@ const Register = () => {
             <h1 className="text-5xl font-bold">Please Register</h1>
           </div>
           <form onSubmit={handleSignIn}>
-          <div className="card flex-shrink-0 w-96 shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-80 lg:w-96 shadow-2xl bg-base-100">
             <div className="card-body w-full">
               <div className="form-control">
                 <label className="label">

@@ -18,12 +18,12 @@ const ChefDetails = () => {
   } = chefData;
   return (
     
-    <div className="p-10">
-      {chefData?<div><div className=" flex gap-10 items-center">
-        <div>
-          <LazyLoad><img src={picture} className="max-w-sm rounded-lg shadow-2xl" /></LazyLoad>
+    <div className="py-10 lg:px-10">
+      {chefData?<div><div className=" lg:flex lg:gap-10 items-center">
+        <div className="w-full">
+          <LazyLoad><img src={picture} className="lg:max-w-sm rounded-lg shadow-2xl" /></LazyLoad>
         </div>
-        <div>
+        <div className=" mt-5 lg:mt-0 px-3 lg:px-0">
           <h1 className="text-5xl font-bold mb-4 underline">Chef Details</h1>
           <h3 className=" font-semibold text-3xl">
             <span className=" font-bold">Name : </span> {chefName}
@@ -48,7 +48,7 @@ const ChefDetails = () => {
       </div>
       <div className="mt-5">
         <h1 className="text-center font-bold text-3xl">{chefName} Recipe Lists</h1>
-          <div className="grid grid-cols-3 mt-5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 mt-5">
             {
                 recipes.map((recipe,index)=><Recipes key={index} recipe={recipe}></Recipes>)
             }

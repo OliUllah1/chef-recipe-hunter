@@ -37,7 +37,7 @@ const Login = () => {
         .then((result)=>{
             const user =result.user;
             console.log(user)
-            navigate('/')
+            navigate(from, {replace:true})
         })
         .catch((error)=>{
             console.log(error)
@@ -48,7 +48,7 @@ const Login = () => {
         .then((result)=>{
             const user =result.user;
             console.log(user)
-            navigate('/')
+            navigate(from, {replace:true})
         })
         .catch((error)=>{
             console.log(error)
@@ -61,7 +61,7 @@ const Login = () => {
             <h1 className="text-5xl font-bold">Please Login</h1>
           </div>
           <form onSubmit={handleSignIn} action="">
-          <div className="card flex-shrink-0 w-96 shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-80 lg:w-96 shadow-2xl bg-base-100">
             <div className="card-body w-full">
               <div className="form-control">
                 <label className="label">

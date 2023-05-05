@@ -17,8 +17,8 @@ const Recipes = ({recipe}) => {
 
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-              <figure className="px-5 pt-50 h-52">
+            <div className="card mb-10 lg:mb-0 px-2 lg:px-0 lg:w-96 bg-base-100 shadow-xl">
+              <figure className="lg:px-5 pt-50 lg:h-52">
                <LazyLoad>
                <img
                   src={recipeImg}
@@ -27,7 +27,7 @@ const Recipes = ({recipe}) => {
                 />
                </LazyLoad>
               </figure>
-              <div className=" pb-5 px-5">
+              <div className=" pb-5 px-2 lg:px-5">
                 <h3 className='font-semibold text-xl mt-3'><span className=' font-bold'>Recipe Name : </span> {recipeName}</h3>
                 <h4 className=' font-bold mt-2'>Ingredients :</h4>
                 <ul className='list-decimal pl-5 font-semibold'>
